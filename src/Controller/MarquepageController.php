@@ -47,4 +47,21 @@ class MarquepageController extends AbstractController
 
         return new Response('Les 3 marque-pages ont été sauvegardés en base !');
     }
+
+    #[Route('marquepages/detail/{id<\d+>}', name: 'detail')]
+    public function detail(int $id, EntityManagerInterface $entityManager): Response
+    {
+        $marquepage = $entityManager
+            ->getRepository(Marquepage::class)
+            ->find($id);
+
+        if (!$marquepage) {
+            throw $this->createNotFoundException("Aucun marque-page avec l'id " . $id);
+        }
+
+        return $this->render('marquepage/detail.html.twig', [
+            'marquepage' => $marquepage,
+        ]);
+    }
+
 }

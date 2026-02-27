@@ -1,0 +1,38 @@
+{# templates/marquepage/detail.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Détail d'un marque-page</title>
+    <style>
+        table { border-collapse: collapse; width: 60%; margin: auto; }
+        th, td { border: 1px solid #aaa; padding: 8px; text-align: center; }
+        th { background-color: #a8c4e0; }
+        h1 { text-align: center; color: green; font-style: italic; }
+    </style>
+</head>
+<body>
+    <h1>Détail d'un marque-page</h1>
+    <table>
+        <tr>
+            <th>Libellé</th>
+            <th>Valeur</th>
+        </tr>
+        <tr>
+            <td>Id</td>
+            <td>{{ marquepage.id }}</td>
+        </tr>
+        <tr>
+            <td>Url</td>
+            <td>{{ marquepage.url }}</td>
+        </tr>
+        <tr>
+            <td>Date de création</td>
+            <td>{{ marquepage.dateCreation|date('d/m/Y H:i:s') }}</td>
+        </tr>
+        <tr>
+            <td>Commentaire</td>
+            <td>{{ marquepage.commentaire }}</td>
+        </tr>
+    </table>
+</body>
+</html>
