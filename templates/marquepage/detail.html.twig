@@ -33,6 +33,14 @@
             <td>Commentaire</td>
             <td>{{ marquepage.commentaire }}</td>
         </tr>
+        <tr>
+        <td>Mots-clés</td>
+        <td>
+            {% for motCle in marquepage.motCles %}
+                {{ motCle.libelle }}<br>
+            {% endfor %}
+        </td>
+        </tr>
     </table>
 </body>
 </html>
