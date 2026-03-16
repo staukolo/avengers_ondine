@@ -20,9 +20,14 @@
         </tr>
         {% for marquepage in marquepages %}
         <tr>
-            <td><a href="{{ marquepage.url }}" class="url-link" target="_blank">
+            {# <td><a href="{{ marquepage.url }}" class="url-link" target="_blank">
                         {{ marquepage.url|replace({'https://': '', 'http://': ''}) }}
-                    </a></td>
+                    </a></td> #}
+            <td>
+                <a href="{{ path('app_marquepages_detail', {id: marquepage.id}) }}">
+                    {{ marquepage.url }}
+                </a>
+            </td>
             <td>{{ marquepage.dateCreation|date('d/m/Y') }}</td>
             <td>{{ marquepage.commentaire }}</td>
         </tr>

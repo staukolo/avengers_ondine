@@ -107,7 +107,7 @@ class MarquepageController extends AbstractController
         return new Response('Les marque-pages et mots-clés ont été sauvegardés !');
     }
 
-    #[Route('marquepages/detail/{id<\d+>}', name: 'detail')]
+    #[Route('marquepages/detail/{id<\d+>}', name: 'app_marquepages_detail')]
     public function detail(int $id, EntityManagerInterface $entityManager): Response
     {
         $marquepage = $entityManager
