@@ -1,16 +1,10 @@
 {# templates/marquepage/detail.html.twig #}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Détail d'un marque-page</title>
-    <style>
-        table { border-collapse: collapse; width: 60%; margin: auto; }
-        th, td { border: 1px solid #aaa; padding: 8px; text-align: center; }
-        th { background-color: #a8c4e0; }
-        h1 { text-align: center; color: green; font-style: italic; }
-    </style>
-</head>
-<body>
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail d'un marque-page{% endblock %}
+
+{% block body %}
+
     <h1>Détail d'un marque-page</h1>
     <table>
         <tr>
@@ -43,5 +37,4 @@
         </tr>
     </table>
     <a href="{{ path('app_marquepages') }}">← Retour à la liste</a>
-</body>
-</html>
+{% endblock %}

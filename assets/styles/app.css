@@ -1,3 +1,122 @@
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: skyblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #43005e;
+}
+
+/* Header */
+header {
+    background-color: #ecc1fd;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header h1 {
+    font-size: 1.8em;
+}
+
+header img {
+    height: 50px;
+}
+
+/* Navigation */
+nav {
+    background-color: #ecc1fd;
+    padding: 12px 40px;
+}
+
+nav a {
+    color: #ac3af4;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 20px;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: white;
+}
+
+/* Contenu principal */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    color: #1a1a2e;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+/* Tableaux */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+th {
+    background-color: #ac3af4;
+    color: white;
+    padding: 14px 20px;
+    text-align: left;
+}
+
+td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background-color: #f0f0f0;
+}
+
+/* Liens */
+a {
+    color: #ac3af4;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Lien retour */
+.retour {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #1a1a2e;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #ecc1fd;
+    color: #aaa;
+    font-size: 0.9em;
 }

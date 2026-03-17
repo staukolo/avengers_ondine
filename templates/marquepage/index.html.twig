@@ -1,16 +1,10 @@
 {# templates/marquepage/index.html.twig #}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Liste des marque-pages</title>
-    <style>
-        table { border-collapse: collapse; width: 60%; margin: auto; }
-        th, td { border: 1px solid #aaa; padding: 8px; text-align: center; }
-        th { background-color: #a8c4e0; }
-        h1 { text-align: center; color: green; font-style: italic; }
-    </style>
-</head>
-<body>
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des marque-pages{% endblock %}
+
+{% block body %}
     <h1>Liste complète des marque-pages</h1>
     <table>
         <tr>
@@ -33,5 +27,4 @@
         </tr>
         {% endfor %}
     </table>
-</body>
-</html>
+{% endblock %}
