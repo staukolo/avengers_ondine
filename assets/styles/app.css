@@ -1,4 +1,4 @@
-/* Reset de base */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,59 +7,92 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
-    color: #43005e;
+    background-color: #f8f9fa;
+    color: #2d3436;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header */
 header {
-    background-color: #ecc1fd;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     color: white;
-    padding: 20px 40px;
+    padding: 18px 60px;
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.3);
 }
 
 header h1 {
-    font-size: 1.8em;
+    font-size: 1.6em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #a29bfe;
 }
 
 header img {
-    height: 50px;
+    height: 45px;
+    filter: brightness(0) invert(1);
 }
 
 /* Navigation */
 nav {
-    background-color: #ecc1fd;
-    padding: 12px 40px;
+    background-color: #ffffff;
+    padding: 0 60px;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    gap: 10px;
 }
 
 nav a {
-    color: #ac3af4;
+    color: #2d3436;
     text-decoration: none;
-    font-weight: bold;
-    margin-right: 20px;
-    font-size: 1em;
-    transition: color 0.3s;
+    font-weight: 600;
+    font-size: 0.95em;
+    padding: 16px 18px;
+    display: inline-block;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 nav a:hover {
-    color: white;
+    color: #6c5ce7;
+    border-bottom: 3px solid #6c5ce7;
 }
 
 /* Contenu principal */
 main {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 30px;
+    flex: 1;
+    width: 100%;
 }
 
+/* Titres */
 h1 {
-    color: #1a1a2e;
-    margin-bottom: 20px;
-    font-size: 1.8em;
-    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+    color: #2d3436;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, #6c5ce7, #a29bfe);
+    border-radius: 2px;
 }
 
 /* Tableaux */
@@ -67,56 +100,94 @@ table {
     width: 100%;
     border-collapse: collapse;
     background-color: white;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    margin-top: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin-top: 10px;
+}
+
+thead {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
 }
 
 th {
-    background-color: #ac3af4;
-    color: white;
-    padding: 14px 20px;
+    color: #a29bfe;
+    padding: 16px 24px;
     text-align: left;
+    font-weight: 600;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
 }
 
 td {
-    padding: 12px 20px;
-    border-bottom: 1px solid #eee;
+    padding: 14px 24px;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 0.95em;
+    color: #444;
 }
 
 tr:last-child td {
     border-bottom: none;
 }
 
-tr:hover td {
-    background-color: #f0f0f0;
+tbody tr {
+    transition: background-color 0.15s ease;
 }
 
-/* Liens */
-a {
-    color: #ac3af4;
+tbody tr:hover {
+    background-color: #f8f6ff;
+}
+
+/* Liens dans tableau */
+td a {
+    color: #6c5ce7;
     text-decoration: none;
+    font-weight: 500;
 }
 
-a:hover {
+td a:hover {
     text-decoration: underline;
 }
 
-/* Lien retour */
+/* Bouton retour */
 .retour {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+    color: #6c5ce7;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: gap 0.2s ease;
+}
+
+.retour:hover {
+    gap: 12px;
+    text-decoration: none;
+}
+
+/* Badges mots-clés */
+.badge {
     display: inline-block;
-    margin-bottom: 20px;
-    color: #1a1a2e;
-    font-weight: bold;
+    background-color: #f0eeff;
+    color: #6c5ce7;
+    border: 1px solid #d4ccff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.82em;
+    font-weight: 600;
+    margin: 3px 3px 3px 0;
 }
 
 /* Footer */
 footer {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #a29bfe;
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    background-color: #ecc1fd;
-    color: #aaa;
-    font-size: 0.9em;
+    padding: 22px;
+    font-size: 0.88em;
+    letter-spacing: 0.5px;
+    margin-top: auto;
 }

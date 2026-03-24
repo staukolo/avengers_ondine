@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail d'un livre{% endblock %}
+
+{% block body %}
+    <h1>Détail d'un livre</h1>
+    <a class="retour" href="{{ path('app_livre_liste') }}">← Retour à la liste</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Libellé</th>
+                <th>Valeur</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Id</td>
+                <td>{{ livre.id }}</td>
+            </tr>
+            <tr>
+                <td>Titre</td>
+                <td>{{ livre.titre }}</td>
+            </tr>
+            <tr>
+                <td>Année</td>
+                <td>{{ livre.annee }}</td>
+            </tr>
+            <tr>
+                <td>Auteur</td>
+                <td>{{ livre.auteur.prenom }} {{ livre.auteur.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

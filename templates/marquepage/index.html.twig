@@ -1,11 +1,11 @@
 {# templates/marquepage/index.html.twig #}
-
-{% extends 'base.html.twig' %}
+{% extends 'marquepage/layout.html.twig' %}
 
 {% block title %}Liste des marque-pages{% endblock %}
 
-{% block body %}
-    <h1>Liste complète des marque-pages</h1>
+{% block marquepage_content %}
+
+<h1>Liste complète des marque-pages</h1>
     <table>
         <tr>
             <th>Url</th>
@@ -27,4 +27,5 @@
         </tr>
         {% endfor %}
     </table>
+
 {% endblock %}

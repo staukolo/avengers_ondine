@@ -1,9 +1,10 @@
 {# templates/marquepage/detail.html.twig #}
-{% extends 'base.html.twig' %}
+
+{% extends 'marquepage/layout.html.twig' %}
 
 {% block title %}Détail d'un marque-page{% endblock %}
 
-{% block body %}
+{% block marquepage_content %}
 
     <h1>Détail d'un marque-page</h1>
     <table>
@@ -31,10 +32,11 @@
         <td>Mots-clés</td>
         <td>
             {% for motCle in marquepage.motCles %}
-                {{ motCle.libelle }}<br>
+                <span class="badge">{{ motCle.libelle }}</span>
             {% endfor %}
         </td>
         </tr>
     </table>
     <a href="{{ path('app_marquepages') }}">← Retour à la liste</a>
+
 {% endblock %}
