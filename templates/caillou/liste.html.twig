@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cailloux - {{ categorie }}{% endblock %}
+
+{% block body %}
+    <h1>{{ categorie }}</h1>
+
+    <div class="cailloux-grid">
+        {% for caillou in caillou %}
+        <div class="caillou-card">
+            <img src="{{ asset('images/' ~ caillou.photo) }}" alt="{{ caillou.nom }}">
+            <div class="caillou-content">
+                <h2>{{ caillou.nom }}</h2>
+                <p>{{ caillou.description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
