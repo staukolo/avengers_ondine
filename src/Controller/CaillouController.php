@@ -37,7 +37,7 @@ class CaillouController extends AbstractController
         ]);
     }
 
-    #[Route('/ajouter', name: 'ajouter')]
+/*    #[Route('/ajouter', name: 'ajouter')]
     public function ajouter(EntityManagerInterface $entityManager): Response
     {
         // Faune
@@ -73,5 +73,5 @@ class CaillouController extends AbstractController
         $entityManager->flush();
 
         return new Response('Les caillou ont été ajoutés !');
-    }
+    } */
 }

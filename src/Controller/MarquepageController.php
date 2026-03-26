@@ -50,7 +50,7 @@ class MarquepageController extends AbstractController
     } */
 
 
-    #[Route('/marquepages/ajouter', name: 'app_marquepages_ajouter')]
+/*    #[Route('/marquepages/ajouter', name: 'app_marquepages_ajouter')]
     public function ajouter(EntityManagerInterface $entityManager): Response
     {
 
@@ -105,7 +105,7 @@ class MarquepageController extends AbstractController
         $entityManager->flush();
 
         return new Response('Les marque-pages et mots-clés ont été sauvegardés !');
-    }
+    } */
 
     #[Route('marquepages/detail/{id<\d+>}', name: 'app_marquepages_detail')]
     public function detail(int $id, EntityManagerInterface $entityManager): Response

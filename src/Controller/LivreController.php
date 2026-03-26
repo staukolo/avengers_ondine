@@ -38,7 +38,7 @@ class LivreController extends AbstractController
             'livre' => $livre,
         ]);
     }
-
+/*
     #[Route('/ajouter', name: 'ajouter')]
     public function ajouter(EntityManagerInterface $entityManager): Response
     {
@@ -73,5 +73,5 @@ class LivreController extends AbstractController
         $entityManager->flush();
 
         return new Response('Les livres ont été ajoutés !');
-    }
+    } */
 }
