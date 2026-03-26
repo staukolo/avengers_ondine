@@ -234,3 +234,59 @@ footer {
     font-size: 0.9em;
     line-height: 1.6;
 }
+
+/* Page d'accueil */
+.accueil {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.accueil-intro {
+    font-size: 1.1em;
+    color: #636e72;
+    margin-bottom: 40px;
+}
+
+.accueil-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.accueil-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    text-decoration: none;
+    color: #2d3436;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.accueil-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    text-decoration: none;
+}
+
+.accueil-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.accueil-card h2 {
+    font-size: 1.2em;
+    color: #6c5ce7;
+}
+
+.accueil-card p {
+    font-size: 0.85em;
+    color: #636e72;
+    text-align: center;
+}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - Symfony dans tous ses états !{% endblock %}
+
+{% block body %}
+    <div class="accueil">
+        <h1>Bienvenue sur Symfony dans tous ses états !</h1>
+        <p class="accueil-intro">
+            Découvrez nos différentes rubriques :
+        </p>
+
+        <div class="accueil-cards">
+            <a href="{{ path('app_marquepages') }}" class="accueil-card">
+                <img src="{{ asset('images/marquepage.jpg') }}" alt="MarquePage" class="accueil-icon">
+                <h2>Marque-pages</h2>
+                <p>Retrouvez tous vos liens favoris</p>
+            </a>
+
+            <a href="{{ path('app_livre_liste') }}" class="accueil-card">
+                <img src="{{ asset('images/livre.jpg') }}" alt="Livres" class="accueil-icon">
+                <h2>Livres</h2>
+                <p>Découvrez notre bibliothèque</p>
+            </a>
+
+            <a href="{{ path('app_caillou_faune') }}" class="accueil-card">
+                <img src="{{ asset('images/faune.jpg') }}" alt="Faune" class="accueil-icon">
+                <h2>Faune</h2>
+                <p>La faune de Nouvelle-Calédonie</p>
+            </a>
+
+            <a href="{{ path('app_caillou_flore') }}" class="accueil-card">
+                <img src="{{ asset('images/flore.jpg') }}" alt="Flore" class="accueil-icon">
+                <h2>Flore</h2>
+                <p>La flore de Nouvelle-Calédonie</p>
+            </a>
+        </div>
+    </div>
+{% endblock %}
