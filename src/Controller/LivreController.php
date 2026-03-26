@@ -74,4 +74,40 @@ class LivreController extends AbstractController
 
         return new Response('Les livres ont été ajoutés !');
     } */
+
+    #[Route('/lettre/{lettre}', name: 'par_lettre')]
+    public function parLettre(string $lettre, EntityManagerInterface $entityManager): Response
+    {
+        $livres = $entityManager
+            ->getRepository(Livre::class)
+            ->findByPremierCaractreTitre($lettre);
+
+        return $this->render('livre/index.html.twig', [
+            'livres' => $livres,
+            'titre' => 'Livres commençant par "' . strtoupper($lettre) . '"',
+        ]);
+    }
+
+    #[Route('/auteurs/{nb<\d+>}', name: 'auteurs_nb_livres')]
+    public function auteurNbLivres(int $nb, EntityManagerInterface $entityManager): Response
+    {
+        $auteurs = $entityManager
+            ->getRepository(Livre::class)
+            ->findAuteursNbLivresMin($nb);
+
+        return $this->render('livre/auteurs.html.twig', [
+            'auteurs' => $auteurs,
+            'nb' => $nb,
+        ]);
+    }
+
+    #[Route('/count', name: 'count')]
+    public function count(EntityManagerInterface $entityManager): Response
+    {
+        $nb = $entityManager
+            ->getRepository(Livre::class)
+            ->countLivres();
+
+        return new Response('Il y a ' . $nb . ' livres en base.');
+    }
 }

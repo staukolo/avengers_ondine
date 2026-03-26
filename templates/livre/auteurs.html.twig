@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Auteurs prolifiques{% endblock %}
+
+{% block body %}
+    <h1>Auteurs ayant écrit plus de {{ nb }} livre(s)</h1>
+    <a class="retour" href="{{ path('app_livre_liste') }}">← Retour à la liste</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Nombre de livres</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in auteurs %}
+            <tr>
+                <td>{{ result[0].prenom }}</td>
+                <td>{{ result[0].nom }}</td>
+                <td>{{ result.nbLivres }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

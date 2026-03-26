@@ -68,7 +68,7 @@ class MesFixtures extends Fixture
         $mc6->setLibelle('Code');
         $manager->persist($mc6);
 
-        // On crée 25 mots-clés supplémentaires
+        //25 mots-clés supplémentaires
         $motsCles = [$mc1, $mc2, $mc3, $mc4, $mc5, $mc6];
         $listeMotsCles = [
             'Symfony', 'MVC', 'PHP', 'Recherche',
@@ -112,7 +112,7 @@ class MesFixtures extends Fixture
         $mp3->addMotCle($mc6);
         $manager->persist($mp3);
 
-        // 22 marque-pages supplémentaires aléatoires
+        // 22 marque-pages supplémentaires
         $urls = [
             'https://isitchristmas.com', 'https://theuselessweb.com',
             'https://boredbutton.com', 'https://pointerpointer.com',

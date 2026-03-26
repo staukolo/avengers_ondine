@@ -40,4 +40,37 @@ class LivreRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+        public function findByPremierCaractreTitre(string $lettre): array
+        {
+            return $this->createQueryBuilder('l')
+                ->andWhere('l.titre LIKE :lettre')
+                ->setParameter('lettre', $lettre . '%')
+                ->orderBy('l.titre', 'ASC')
+                ->getQuery()
+                ->getResult();
+        }
+
+        public function findAuteursNbLivresMin(int $nbMin): array
+        {
+            return $this->getEntityManager()
+                ->createQuery(
+                    'SELECT a, COUNT(l.id) as nbLivres
+                    FROM App\Entity\Auteur a
+                    JOIN a.livres l
+                    GROUP BY a.id
+                    HAVING COUNT(l.id) > :nbMin
+                    ORDER BY nbLivres DESC'
+                )
+                ->setParameter('nbMin', $nbMin)
+                ->getResult();
+        }
+
+        public function countLivres(): int
+        {
+            return $this->createQueryBuilder('l')
+                ->select('COUNT(l.id)')
+                ->getQuery()
+                ->getSingleScalarResult();
+        }
 }
