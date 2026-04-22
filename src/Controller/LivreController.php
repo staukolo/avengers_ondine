@@ -136,4 +136,26 @@ class LivreController extends AbstractController
     {
         return $this->render('livre/ajout_succes.html.twig');
     }
+
+    #[Route('/modifier/{id<\d+>}', name: 'modifier')]
+    public function modifier(int $id, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $livre = $entityManager->getRepository(Livre::class)->find($id);
+
+        if (!$livre) {
+            throw $this->createNotFoundException("Aucun livre avec l'id " . $id);
+        }
+
+        $form = $this->createForm(LivreType::class, $livre);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+            return $this->redirectToRoute('app_livre_ajout_succes');
+        }
+
+        return $this->render('livre/ajout.html.twig', [
+            'mon_formulaire' => $form,
+        ]);
+    }
 }

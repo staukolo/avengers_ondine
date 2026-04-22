@@ -35,4 +35,26 @@ class AuteurController extends AbstractController
     {
         return $this->render('auteur/ajout_succes.html.twig');
     }
+
+    #[Route('/modifier/{id<\d+>}', name: 'modifier')]
+    public function modifier(int $id, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $auteur = $entityManager->getRepository(Auteur::class)->find($id);
+
+        if (!$auteur) {
+            throw $this->createNotFoundException("Aucun auteur avec l'id " . $id);
+        }
+
+        $form = $this->createForm(AuteurType::class, $auteur);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+            return $this->redirectToRoute('app_auteur_ajout_succes');
+        }
+
+        return $this->render('auteur/ajout.html.twig', [
+            'mon_formulaire' => $form,
+        ]);
+    }
 }
