@@ -3,10 +3,12 @@ namespace App\Controller;
 
 use App\Entity\Livre;
 use App\Entity\Auteur;
+use App\Form\Type\LivreType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 #[Route('/livre', name: 'app_livre_')]
 class LivreController extends AbstractController
@@ -109,5 +111,29 @@ class LivreController extends AbstractController
             ->countLivres();
 
         return new Response('Il y a ' . $nb . ' livres en base.');
+    }
+
+    #[Route('/ajout', name: 'ajout')]
+    public function ajout(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $livre = new Livre();
+        $form = $this->createForm(LivreType::class, $livre);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($livre);
+            $entityManager->flush();
+            return $this->redirectToRoute('app_livre_ajout_succes');
+        }
+
+        return $this->render('livre/ajout.html.twig', [
+            'mon_formulaire' => $form,
+        ]);
+    }
+
+    #[Route('/ajout/succes', name: 'ajout_succes')]
+    public function ajoutSucces(): Response
+    {
+        return $this->render('livre/ajout_succes.html.twig');
     }
 }

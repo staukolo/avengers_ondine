@@ -20,7 +20,13 @@
                         {{ livre.titre }}
                     </a>
                 </td>
-                <td>{{ livre.auteur.prenom }} {{ livre.auteur.nom }}</td>
+                <td>
+                    {% if livre.auteur %}
+                        {{ livre.auteur.prenom }} {{ livre.auteur.nom }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
                 <td>{{ livre.annee }}</td>
             </tr>
             {% endfor %}

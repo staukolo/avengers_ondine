@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livre ajouté !{% endblock %}
+
+{% block body %}
+    <h1>Le livre a bien été enregistré !</h1>
+    <a class="retour" href="{{ path('app_livre_liste') }}">← Retour à la liste</a>
+    <a class="retour" href="{{ path('app_livre_ajout') }}">+ Ajouter un autre livre</a>
+{% endblock %}

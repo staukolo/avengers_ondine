@@ -26,9 +26,15 @@
                 <td>{{ livre.annee }}</td>
             </tr>
             <tr>
-                <td>Auteur</td>
-                <td>{{ livre.auteur.prenom }} {{ livre.auteur.nom }}</td>
-            </tr>
+            <td>Auteur</td>
+            <td>
+                {% if livre.auteur %}
+                    {{ livre.auteur.prenom }} {{ livre.auteur.nom }}
+                {% else %}
+                    -
+                {% endif %}
+            </td>
+        </tr>
         </tbody>
     </table>
 {% endblock %}
