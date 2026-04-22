@@ -290,3 +290,21 @@ footer {
     color: #636e72;
     text-align: center;
 }
+
+.btn-ajout {
+    display: inline-block;
+    background-color: #6c5ce7;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-ajout:hover {
+    background-color: #5a4bd1;
+    color: white;
+    text-decoration: none;
+}
